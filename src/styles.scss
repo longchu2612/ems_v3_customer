@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+.ant-tabs-tab {
+    padding: 15px 15px !important;
+    background-color: #fff !important;
+    justify-content: center;
+
+    &+.ant-tabs-tab {
+        margin-top: 8px !important;
+    }
+
+    .anticon {
+        margin-right: 0 !important;
+    }
+
+
+    .noti-count {
+        position: absolute;
+        top: 1px;
+        right: 3px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #c3baba;
+        text-align: center;
+        margin: auto;
+        line-height: 25px;
+        color: #fff;
+        font-size: 12px;
+    }
+    // .ant-tabs-tab-active
+    &.ant-tabs-tab-active {
+        .noti-count {
+            background: red !important;
+        }
+    }
+}
+
+.ant-tabs-tabpane {
+    padding-left: 15px !important;
+}
+
+.ant-tabs-content-holder{
+    border-left: none !important;
+    overflow: auto;
+}
+
+nz-input-number.text-right{
+    input{
+        text-align: right;
+        padding-right: 30px
+    }
+}
+.ant-spin{
+    color: #fff !important;
+}
+.ant-spin-dot-item{
+    background-color: #fff !important;
+}

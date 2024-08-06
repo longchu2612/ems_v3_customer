@@ -1,0 +1,247 @@
+<div>
+  <div class="text-center header">
+    <div>Tìm kiếm đơn hàng</div>
+  </div>
+  <hr />
+  <div class="contents">
+    <div class="grid grid-cols-4 gap-4 my-4">
+      <div>
+        <button
+          class="w-full btn btn-primary text-blue-600 border border-blue-600 rounded-lg h-10"
+          (click)="filterStatus(1)"
+          [class.active]="selectedStatus === 1"
+        >
+          Đang chờ
+        </button>
+      </div>
+      <div>
+        <button
+          class="w-full btn btn-primary text-blue-600 border border-blue-600 rounded-lg h-10"
+          (click)="filterStatus(3)"
+          [class.active]="selectedStatus === 3"
+        >
+          Chờ giao
+        </button>
+      </div>
+      <div>
+        <button
+          class="w-full btn btn-primary text-blue-600 border border-blue-600 rounded-lg h-10"
+          (click)="filterStatus(4)"
+          [class.active]="selectedStatus === 4"
+        >
+          Đã giao
+        </button>
+      </div>
+      <div>
+        <button
+          class="w-full btn btn-primary active text-blue-600 border border-blue-600 rounded-lg h-10"
+          (click)="filterStatus(0)"
+          [class.active]="selectedStatus === 0"
+        >
+          Tất cả
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="flex listproducts p-2"
+      *ngFor="let data of listData; let index = index"
+      style="margin-left: 10px; margin-right: 10px; margin-top: 10px"
+    >
+      <div *ngIf="selectedStatus !== 0" class="w-2/5">
+        <img
+          class="rounded-2xl"
+          style="height: 113px; width: 100%"
+          src="{{ data?.image }}"
+          alt=""
+        />
+      </div>
+      <div class="w-3/5 flex justify-between" style="margin-left: 5px">
+        <div class="flex flex-col space-y-2">
+          <div>Tên: {{ data?.productName }}</div>
+          <div>Giá: {{ data?.price | currency : "VND" }}</div>
+          <div class="flex">
+            <div *ngIf="selectedStatus === 1">
+              Số lượng:
+              <button
+                *ngIf="pending"
+                style="
+                  background-color: #bca6a6;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="decreasePending(data?.id)"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              {{ data?.pending }}
+              <button
+                *ngIf="pending"
+                style="
+                  background-color: #37ec37;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="increasePending(data?.id)"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div *ngIf="selectedStatus === 3">
+              Số lượng:
+              <button
+                *ngIf="pending"
+                style="
+                  background-color: #bca6a6;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="decreaseQuantity(data?.id)"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              {{ data?.serving }}
+              <button
+                *ngIf="pending"
+                style="
+                  background-color: #37ec37;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="increaseQuantity(data?.id)"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div *ngIf="selectedStatus === 4">
+              Số lượng:
+              <button
+                *ngIf="pending"
+                style="
+                  background-color: #bca6a6;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="decreaseQuantity(data?.id)"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              {{ data?.done }}
+              <button
+                *ngIf="pending"
+                style="
+                  background-color: #37ec37;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="increaseQuantity(data?.id)"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div *ngIf="selectedStatus === 0">
+              Số lượng:
+              {{
+                data.pending +
+                  data.done +
+                  data.serving +
+                  data.inProgress +
+                  data.pay
+              }}
+            </div>
+          </div>
+          <div *ngIf="selectedStatus === 1">
+            Thành tiền: {{ data.price * data.pending | currency : "VND" }}
+          </div>
+          <div *ngIf="selectedStatus === 3">
+            Thành tiền: {{ data.price * data.serving | currency : "VND" }}
+          </div>
+          <div *ngIf="selectedStatus === 4">
+            Thành tiền: {{ data.price * data.done | currency : "VND" }}
+          </div>
+          <div *ngIf="selectedStatus === 0">
+            Thành tiền:
+            {{
+              data.price *
+                (data.pending +
+                  data.done +
+                  data.serving +
+                  data.inProgress +
+                  data.pay) | currency : "VND"
+            }}
+          </div>
+        </div>
+        <div *ngIf="selectedStatus !== 0">
+          <button
+            *ngIf="pending"
+            (click)="deleteProduct(data?.id)"
+            style="
+              height: 40px;
+              padding: 10px;
+              color: rgb(255, 48, 48);
+              border-radius: 10px;
+              margin-top: 30px;
+            "
+          >
+            <i class="fa-solid fa-trash fa-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="fixed-flex-container flex">
+        <div
+          style="margin-top: 10px; font-weight: bold"
+          *ngIf="selectedStatus === 1"
+        >
+          Tổng tiền: {{ totalPendingPrice | currency : "VND" }}
+        </div>
+        <div
+          style="margin-top: 10px; font-weight: bold"
+          *ngIf="selectedStatus === 3"
+        >
+          Tổng tiền: {{ totalDonePrice | currency : "VND" }}
+        </div>
+        <div
+          style="margin-top: 10px; font-weight: bold"
+          *ngIf="selectedStatus === 4"
+        >
+          Tổng tiền: {{ totalDonePrice | currency : "VND" }}
+        </div>
+        <div style="margin-top: 10px; font-weight: bold" *ngIf="status === 0">
+          Tổng tiền: {{ totalPrice | currency : "VND" }}
+        </div>
+        <button
+          *ngIf="selectedStatus === 1"
+          class="bg-blue-900 text-white"
+          (click)="updateOrder()"
+          style="padding: 10px; border-radius: 5px"
+        >
+          Sửa món
+        </button>
+
+        <button
+          class="bg-blue-900 text-white"
+          routerLink="/bill"
+          style="padding: 10px; border-radius: 5px"
+        >
+          Hóa đơn tạm
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

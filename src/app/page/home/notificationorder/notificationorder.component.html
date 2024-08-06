@@ -1,0 +1,139 @@
+<div class="flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc] bg-[#008000]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]" routerLink="/account"></span>
+            </div>
+            <!-- <div class="page-title"></div> -->
+            <div class="logo text-center flex text-[20px] flex gap-[8px] items-center">
+                <!-- <span role="img" aria-label="user" class="anticon anticon-user"> -->
+                    <!-- <svg viewBox="64 64 896 896" focusable="false" data-icon="user" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></span> -->
+                <span class="text-[18px] font-medium">Thông báo đơn</span>
+                <!-- <img src="https://via.placeholder.com/600x250" alt=""> -->
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <div class="container w-full items-center m-auto">
+        <ng-container *ngIf="data else noData">
+            <div class="w-full relative">
+                <div class="w-full">
+                    <div class="card p-3 rounded-[8px] bg-[#fff]">
+                        <div class="card-title ">
+                            <div class="flex text-[18px] flex gap-[8px] items-center">
+                                <span nz-icon nzType="container" nzTheme="outline" class=""></span>
+                                <span>
+                                    Thông tin hoá đơn
+                                </span>
+                            </div>
+                        </div>
+                        <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+                            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+                            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+                        </div>
+                        <div class="card-content">
+                            <div class="">
+                                <div class="flex justify-between gap-[10px]">
+                                    <span>Thanh toán</span>
+                                    <span>
+                                        <ng-container *ngIf="data.category == 1">Ăn tại bàn</ng-container>
+                                        <ng-container *ngIf="data.category == 2">Mang đi</ng-container>
+                                        <ng-container *ngIf="data.category == 3">Giao hàng</ng-container>
+                                        <ng-container *ngIf="data.category == 4">Đối tác</ng-container>
+                                    </span>
+                                </div>
+                                <div class="mt-1 flex justify-between gap-[10px]">
+                                    <span>Thời gian bắt đầu</span>
+                                    <span>03/02/2023</span>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-3 rounded-[8px] bg-[#fff] mt-3">
+                        <div class="card-title ">
+                            <div class="flex text-[18px] flex gap-[8px] items-center">
+                                <span nz-icon nzType="profile" nzTheme="outline" class=""></span>
+                                <span>
+                                    Thông tin thanh toán
+                                </span>
+                            </div>
+                        </div>
+                        <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+                            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+                            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+                        </div>
+                        <div class="card-content">
+                            <div class="">
+                                <div class="flex justify-between gap-[10px]">
+                                    <div class="flex items-center gap-[8px]">
+                                        <span nz-icon>
+                                            <svg class="w-[18px] h-[12px]" style="fill: rgb(79, 218, 10)"
+                                                xmlns="http://www.w3.org/2000/svg" width="108.258" height="62.187"
+                                                viewBox="0 0 108.258 62.187">
+                                                <path id="Cash-Icon-9uyhj"
+                                                    d="M89.559,61.187H0V0H107.257V61.187ZM7.166,19.557V41.625a13.686,13.686,0,0,1,11.822,12.4H88.269a13.683,13.683,0,0,1,11.822-12.4V19.557a13.683,13.683,0,0,1-11.822-12.4H18.987A13.686,13.686,0,0,1,7.166,19.557Zm32.1,10.91A14.362,14.362,0,1,1,53.631,44.829,14.362,14.362,0,0,1,39.264,30.467Z"
+                                                    transform="translate(0.5 0.5)" stroke="rgba(0,0,0,0)" stroke-miterlimit="10"
+                                                    stroke-width="1" />
+                                            </svg>
+                                        </span>
+                                        <span>Chuyển khoản</span>
+                                    </div>
+                                    <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                                        <span>Thay đổi</span>
+                                        <span nz-icon nzType="right" nzTheme="outline"></span>
+                                    </div>
+                                </div>
+                                <div class="mt-3 flex justify-between gap-[10px]">
+                                    <span class="font-medium text-[16px]">Cần thanh toán</span>
+                                    <span class="italic font-medium">{{customerPayment*1000 | number:'1.0-2'}}đ</span>
+                                </div>
+                                <!-- <div class="mt-3 justify-between gap-[10px] p-2 rounded-[5px] flex border" (click)="isVisible = true"> -->
+                                <!-- <div class="mt-3 justify-between gap-[10px] p-2 rounded-[5px] flex border">
+                                    <span class="">Nhập tiền khách trả</span>
+                                    <span class="text-[16px] text-indigo-400 font-medium">
+                                        {{customerPayment*1000 | number:'1.0-2'}}đ
+                                    </span>
+                                </div>
+                                <div class="mt-3 flex justify-between gap-[10px]">
+                                    <span>Tiền thừa khách trả</span>
+                                    <span>{{returnMoney*1000|number: '1.0-2'}}đ</span>
+                                </div> -->
+                                <div class="my-2 border-t border-[#ccc] w-full "></div>
+                                <div class="flex mt-4 flex-wrap gap-4">
+                                    <!-- <span *ngFor="let i of suggestMoney" (click)="setMoney(i)" -->
+                                    <span *ngFor="let i of suggestMoney" (click)="setMoney(i)"
+                                        class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">{{i*1000|number: '1.0-2'}}đ
+                                    </span>
+                                    <!-- <span
+                                        class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">51.000đ
+                                    </span>
+                                    <span
+                                        class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">60.000đ
+                                    </span>
+                                    <span
+                                        class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">100.000đ
+                                    </span>
+                                    <span
+                                        class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">200.000đ
+                                    </span>
+                                    <span
+                                        class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">500.000đ
+                                    </span>  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noData>
+            Chưa có đơn hàng. Vui lòng chọn đơn hàng.<a [routerLink]="'/order'"> Quay lại</a>
+        </ng-template>
+    </div>
+    <footer class="footer px-3">
+        <button type="submit" class=" w-full p-2 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#ed7d31]" (click)="submitPayment()">Xác nhận thanh toán</button>
+    </footer>
+</div>

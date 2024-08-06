@@ -1,0 +1,99 @@
+<div>
+  <div>
+    <div style="position: relative">
+      <img
+        style="width: 414px; height: 414px; border-radius: 10px; z-index: 1"
+        src="../../../assets/images/bg_account.png"
+        alt=""
+      />
+      <div class="shop-center flex flex-col" style="position: absolute">
+        <h2 style="font-weight: bold;color: cadetblue;"> {{productData ? productData : "Tên cửa hàng"}} </h2>
+        <!-- <h2 style="font-weight: bold;color: cadetblue;">E M S Shop</h2> -->
+        <h2>Thời gian mở cửa 24/7</h2>
+        <h2>Khách hàng: {{ customerName ? customerName : "Khách" }}</h2>
+        <h2>Vị trí bàn: {{ tableName }} - {{ position }}</h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="text-center" style="margin-top: 100px">
+      <h2>Bạn cần hỗ trợ gì?</h2>
+    </div>
+  </div>
+  <div>
+    <div class="flex justify-between">
+      <!-- <div style="background: #6EDE8A;width: 170px; height: 90px;border-radius: 20px;">
+                <img style="width: 42px; height: 42px;" src="../../../assets/images/done.png" alt="">
+                <div>Gọi nhân viên</div>
+            </div> -->
+      <div
+      (click)="callWaiter()"
+        style="
+          background: #6ede8a;
+          width: 180px;
+          height: 90px;
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <img
+          class="rounded-full"
+          style="width: 40px; height: 40px"
+          src="../../../../assets/images/phone.png"
+          alt=""
+        />
+        <h2>Gọi nhân viên</h2>
+      </div>
+      <div
+        routerLink="/bill"
+        style="
+          background: #fff2b2;
+          width: 180px;
+          height: 90px;
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <img
+          style="width: 40px; height: 40px"
+          src="../../../assets/images/done.png"
+          alt=""
+        />
+        <h2>Gọi thanh toán</h2>
+      </div>
+    </div>
+    <div style="margin-top: 10px;
+          padding-bottom: 7rem;
+    ">
+      <div
+        [routerLink]="['/order']"
+        style="
+          background: #64b5f6;
+          width: 100%;
+          height: 90px;
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <img
+          class="rounded-full"
+          style="width: 40px; height: 40px"
+          src="../../../assets/images/menu.jpg"
+          alt=""
+        />
+        <h2>Thực đơn & Gọi món</h2>
+      </div>
+      <!-- <div style="background: #64B5F6;width: 100%; height: 90px;border-radius: 20px;"></div> -->
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

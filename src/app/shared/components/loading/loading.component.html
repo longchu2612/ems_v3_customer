@@ -1,0 +1,10 @@
+<div
+    [ngClass]="(loadingService.isLoading$ | async)? 'fixed-center blur-all ': 'opacity-0 h-0  fixed-center blur-all overflow-hidden'">
+    <div class="example fixed-center absolute flex">
+        <nz-spin nzSimple nzTip="Loading..." nzSize="large" class="text-[#fff] fixed-center"
+            [ngClass]="((loadingService.isLoading$ | async))? ' ': 'opacity-0 h-0 '">
+
+        </nz-spin>
+
+    </div>
+</div>

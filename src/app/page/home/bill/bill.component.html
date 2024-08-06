@@ -1,0 +1,184 @@
+<div class="flex flex-col px-3">
+  <header class="header h-[70px] w-full p-3 border-b border-[#ccc]">
+    <div class="inline-header flex h-full items-center">
+      <div class="menu">
+        <span
+          nz-icon
+          nzType="arrow-left"
+          nzTheme="outline"
+          class="text-[20px]"
+          [routerLink]="'/order'"
+        ></span>
+      </div>
+      <!-- <div class="page-title"></div> -->
+      <div class="logo text-center flex-1">
+        <span class="text-[20px] font-medium">HÓA ĐƠN TẠM TÍNH</span>
+        <!-- <img src="https://via.placeholder.com/600x250" alt=""> -->
+      </div>
+      <div class="noti">
+        <span
+          nz-icon
+          nzType="more"
+          nzTheme="outline"
+          class="text-[20px]"
+        ></span>
+      </div>
+    </div>
+  </header>
+  <div class="main-body pb-[146px]">
+    <div class="w-full relative" else noData>
+      <!-- <div class="flex py-1 items-center w-full border-b border-[#ccc]  text-[15px] h-[35px]">
+                <div class="col flex-1 h-full py-2 px-2 flex gap-[8px] items-center" (click)="toggle()">
+                    <span nz-icon nzType="arrow-left" nzTheme="outline" class="mr-1"></span>
+                    <div class="w-full">
+                        <span *ngIf="haveCategory; else noCategory">{{currentCategory}}</span>
+                        <ng-template #noCategory> Ăn tại bàn </ng-template>
+
+                        <ul *ngIf="isOpen" class="bg-[#fff] absolute border left-[0] top-[34px] w-[50%]" style="z-index: 1000;">
+                            <li class="border-b w-full pr-7 p-1"  *ngFor="let item of category" (click)="showCategory(item)">{{item}}</li>
+                        </ul>
+                    </div>
+                    <span nz-icon nzType="down" nzTheme="outline" class=""></span>
+                </div>
+                <div class="col flex flex-1 py-2 px-2 border-l border-[#ccc] h-full gap-[8px] items-center">
+                    <span class=" w-full mr-3 ml-3">Chọn bàn</span>
+                    <span nz-icon nzType="down" nzTheme="outline" class=""></span>
+                </div>
+            </div> -->
+      <div>
+        <!-- <div class="text-center"><h1 class="font-extrabold" style="font-size: large;">E M S Restaurant</h1></div> -->
+        <div class="my-4">Khách: {{ name }}</div>
+        <div></div>
+      </div>
+      <hr />
+      <div class="list-payment">
+        <table border="2" style="width: 100%; border-collapse: collapse">
+          <thead>
+            <tr>
+              <th
+                style="text-align: left; border: 1px solid black; padding: 10px"
+              >
+                #
+              </th>
+              <th
+                style="text-align: left; border: 1px solid black; padding: 10px"
+              >
+                Tên món
+              </th>
+              <th
+                style="text-align: left; border: 1px solid black; padding: 10px"
+              >
+                Số lượng
+              </th>
+              <th
+                style="text-align: left; border: 1px solid black; padding: 10px"
+              >
+                Đơn giá
+              </th>
+              <th
+                style="text-align: left; border: 1px solid black; padding: 10px"
+              >
+                Tổng tiền
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of basket; let i = index">
+              <td style="border: 1px solid black; padding: 10px">
+                {{ i + 1 }}
+              </td>
+              <td style="border: 1px solid black; padding: 10px">
+                {{ item.productName }}
+              </td>
+              <td style="border: 1px solid black; padding: 10px">
+                {{ item.inProgress + item.done + item.pending + item.serving +item.pay}}
+              </td>
+              <td style="border: 1px solid black; padding: 10px">
+                {{ item.price }}
+              </td>
+              <td style="border: 1px solid black; padding: 10px">
+                {{
+                  item.price *
+                    (item.inProgress + item.done + item.pending + item.serving +item.pay)
+                }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- <ul class="m-0" >
+                    <li class="flex justify-between py-3 border-b-2 border-[#ccc]" *ngFor="let item of basket">
+                            <div>
+                                <p class="text-medium mb-1 text-[18px] font-medium">{{item.name | titlecase}}</p>
+                                <span>{{item.price | number: '1.0-2'}}đ</span>
+                            </div>
+                            <div style="margin-left: 10px;">
+                                <p class="text-medium mb-1 text-[18px] font-medium">{{item.name | titlecase}}</p>
+                                <span>{{item.price | number: '1.0-2'}}đ</span>
+                            </div>
+                            <div>
+                                <p class="text-medium mb-1 text-[18px] font-medium">{{item.name | titlecase}}</p>
+                                <span>{{item.price | number: '1.0-2'}}đ</span>
+                            </div>
+                            <div style="margin-left: 10px;">
+                                <p class="text-medium mb-1 text-[18px] font-medium">{{item.name | titlecase}}</p>
+                                <span>{{item.price | number: '1.0-2'}}đ</span>
+                            </div>
+
+                    </li>
+                    <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                        <div class="flex items-center gap-[8px]">
+                            <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span>
+                            <span>
+                                Tiền hàng
+                            </span>
+                        </div>
+                        <div>
+                            {{totalPrice | number:'1.0-2'}}
+                        </div>
+                    </li>
+                </ul> -->
+      </div>
+    </div>
+
+    <ng-template class="w-full relative" #noData>
+      <div class="mt-10">
+        Vui lòng chọn đơn trên màn hình đơn hàng để thao tác.
+        <a [routerLink]="'/order'">Quay lại</a>
+      </div>
+    </ng-template>
+  </div>
+  <footer class="footer px-3 bg-[#fff]">
+    <div class="flex justify-between border-t border-b px-1 py-2 bg-[#daecff]">
+      <span class="text-[16px]">SL: {{ totalQuantity }}</span>
+      <span class="font-bold text-[18px]"
+        >Tổng thanh toán:{{ totalPrice | number : "1.0-2" }}đ</span
+      >
+    </div>
+    <div>
+      <ul class="m-0 flex py-1">
+        <li class="flex-1 py-2 text-center text-[#3d6bce]"></li>
+        <li class="flex-1 py-2 text-center border-l text-[#666]"></li>
+        <li class="flex-1 py-2 text-center border-l text-[#666]"></li>
+      </ul>
+    </div>
+    <div>
+      <div class="flex justify-between gap-[10px]">
+        <button
+          class="grow flex items-center p-2 rounded-[5px] gap-[5px] border justify-center text-[#fff] bg-[#31e93d]"
+          [routerLink]="'/order'"
+        >
+          <span>Thêm món</span>
+        </button>
+        <!-- <button class="grow p-2 border rounded-[5px] border-[#ccc]" [routerLink]="'/order'">lưu</button> -->
+        <button
+          class="grow p-2 border rounded-[5px] text-[#fff] bg-[#314ddb]"
+          (click)="redirectToPayment()"
+        >
+          Yêu cầu thanh toán
+        </button>
+        <!-- <button class="grow p-2 border rounded-[5px] text-[#fff] bg-[#314ddb]" [routerLink]="'/history'" (click)="redirectToPayment()" >Yêu cầu thanh toán</button> -->
+      </div>
+    </div>
+  </footer>
+</div>

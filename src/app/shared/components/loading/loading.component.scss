@@ -1,0 +1,26 @@
+.blur-all{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999999;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.6);
+  &>div{
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    top: 50%;
+  }
+}
+
+nz-spin{
+  i{
+    color: #fff;
+  }
+}
+
+.h-0 {
+  height: 0 !important;
+}

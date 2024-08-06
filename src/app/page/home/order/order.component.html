@@ -1,0 +1,197 @@
+<div>
+  <header class="header shadow-md">
+    <div class="inline-header">
+      <div class="menu relative">
+        <button (click)="toggleDropdown()">
+          <!-- <span nz-icon nzType="bars" nzTheme="outline" class="text-[25px]"></span> -->
+        </button>
+        <div
+          *ngIf="showDropdown"
+          class="absolute filter p-4 flex flex-wrap rounded-2xl"
+          style="top: 100px"
+        >
+          <div
+            *ngFor="let item of listCategoriesName"
+            class="mx-2"
+            style="width: auto; height: 50px"
+          >
+            <button
+              class="btn rounded-lg p-2"
+              style="border: 1px solid"
+              (click)="selectCategory(item.id)"
+            >
+              {{ item.categoryName }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="logo">
+        <img src="../../../../assets/images/logo_EMS.png" alt="" />
+        <!-- <div class="text-center"> 
+                    <h1>EMS xin chào {{name}}!</h1>    
+                    <h1>Mời bạn chọn món</h1>    
+                </div> -->
+      </div>
+      <div class="noti">
+        <span
+          nz-icon
+          nzType="bell"
+          nzTheme="outline"
+          class="text-[25px]"
+        ></span>
+      </div>
+    </div>
+  </header>
+  <div class="main-body">
+    <div class="mx-2">
+      <div style="position: relative; text-align: center; display: flex">
+        <div
+          style="
+            border: 1px solid #000000;
+            border-radius: 5px;
+            margin-top: 2%;
+            margin-bottom: 2%;
+          "
+          class="p-2 mr-2"
+        >
+          <button (click)="toggleDropdown()">
+            <span
+              nz-icon
+              nzType="bars"
+              nzTheme="outline"
+              class="text-[25px]"
+            ></span>
+          </button>
+        </div>
+        <input
+          type="text"
+          [(ngModel)]="searchQuery"
+          style="
+            width: calc(100% - 0px);
+            border: 1px solid black;
+            padding-right: 30px;
+            border-radius: 5px;
+            margin-top: 2%;
+            margin-bottom: 2%;
+          "
+          placeholder="Tìm kiếm sản phẩm"
+          (keyup.enter)="performSearch()"
+        />
+        <i
+          class="fa fa-search"
+          style="
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            cursor: pointer;
+          "
+          (click)="performSearch()"
+        ></i>
+      </div>
+      <div
+        class="text-center text-[16px] my-4"
+        style="color: #1b4965; font-weight: bold"
+      >
+        <p>DANH SÁCH SẢN PHẨM</p>
+      </div>
+      <div *ngFor="let item of listCategories">
+        <h1
+          style="
+            color: #1b4965;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 10px;
+          "
+        >
+          {{ item }}
+        </h1>
+        <div style="text-align: center" class="grid grid-cols-2 gap-4">
+          <button
+            class="listproducts"
+            (click)="openModal(product)"
+            *ngFor="let product of productsByCategory[item]; let index = index"
+          >
+            <img
+              class="rounded-2xl"
+              style="width: 100%; height: 120px"
+              src="{{ product.image }}"
+            />
+            <div class="text-black mt-2">
+              <p>{{ product.name }}</p>
+              <p>{{ product.price | currency : "VND" }}</p>
+            </div>
+          </button>
+          <nz-modal
+            [(nzVisible)]="isVisible"
+            nzTitle="Đặt món"
+            (nzOnCancel)="handleCancel()"
+            (nzOnOk)="handleOk()"
+          >
+            <ng-container *nzModalContent>
+              <div class="flex">
+                <div>
+                  <img
+                    class="rounded-2xl"
+                    style="width: 130px; height: 120px"
+                    src="{{ selectedProduct?.image }}"
+                  />
+                </div>
+                <div class="ml-4">
+                  <p>
+                    <strong>Tên sản phẩm:</strong> {{ selectedProduct?.name }}
+                  </p>
+                  <p>
+                    <strong>Giá:</strong>
+                    {{ selectedProduct?.price | currency : "VND" }}
+                  </p>
+                  <p>
+                    <strong>Số lượng:</strong>
+                    <button
+                      style="
+                        background-color: #bca6a6;
+                        border-radius: 20px;
+                        width: 23px;
+                        height: 23px;
+                        color: white;
+                      "
+                      (click)="decreaseQuantity()"
+                    >
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    {{ quantity }}
+                    <button
+                      style="
+                        background-color: #37ec37;
+                        border-radius: 20px;
+                        width: 23px;
+                        height: 23px;
+                        color: white;
+                      "
+                      (click)="increaseQuantity()"
+                    >
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="text-center mt-4">
+                            <p><strong>Số lượng:</strong> 1 </p> 
+                        </div> -->
+              <div class="mt-4">
+                <h2>Ghi chú đơn hàng</h2>
+                <input
+                  type="text"
+                  [(ngModel)]="note"
+                  style="height: 100px; width: 100%; border-radius: 10px"
+                  placeholder="Nội dung"
+                />
+              </div>
+            </ng-container>
+          </nz-modal>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

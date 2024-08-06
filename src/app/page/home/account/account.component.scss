@@ -1,0 +1,65 @@
+// @import "~ng-pick-datetime/assets/style/picker.min.css";
+
+.header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 80px;
+    background-color: #44546a;
+    color: #ffffff;
+    width: 100%;
+    z-index: 9999;
+    .inline-header{
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 20px 15px;
+        align-items: center;
+    }
+  }
+
+  .main-body{
+  height: 90vh;
+  padding-bottom: 110px;
+  padding-top: 90px;
+  width: 100%;
+}
+// .footer{
+//     position: fixed;
+//     bottom: 10px;
+//     // height: 150px;
+//     // border-top: 1px solid #ccc;
+//     width: 100%;
+//     left: 0;
+//   }
+  
+#inputdate{
+  text-align: right;
+  width: 100px;
+}
+
+a{
+  color: #000;
+}
+
+#total1{
+  div{
+    display: flex;
+    flex-direction: column;
+    span{
+
+    }
+  }
+}
+
+.form-item button {
+  width: 260px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #ed7d31;
+  border: none;
+  outline:none;
+  transition: all 200ms;
+  font-weight: 400;
+}

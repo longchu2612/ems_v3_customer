@@ -1,0 +1,150 @@
+<div>
+  <div class="text-center header">
+    <!-- <div>E M S xin chào {{name}}!</div> -->
+    <div>Mời bạn chọn món</div>
+  </div>
+  <hr />
+  <div class="contents">
+    <div style="position: relative; text-align: center">
+      <input
+        type="text"
+        style="
+          width: calc(100% - 20px);
+          border: 1px solid black;
+          padding-right: 30px;
+          border-radius: 5px;
+          margin-top: 2%;
+          margin-bottom: 2%;
+        "
+        placeholder="Tìm kiếm trong giỏ hàng"
+      />
+      <i
+        class="fa fa-search"
+        style="
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          transform: translateY(-50%);
+        "
+      ></i>
+    </div>
+    <div
+      class="flex listproducts"
+      *ngFor="let data of listdata; let index = index"
+      style="margin-left: 10px; margin-right: 10px; margin-top: 10px"
+    >
+      <div class="w-2/5">
+        <img
+          class="rounded-2xl"
+          style="height: 88px; width: 100%"
+          src="{{ data?.image }}"
+          alt=""
+        />
+      </div>
+      <div class="w-3/5 flex justify-between" style="margin-left: 5px">
+        <div class="flex flex-col space-y-2">
+          <div>Sản phẩm: {{ data?.name }}</div>
+          <div>Giá: {{ data?.price | currency : "VND" }}</div>
+          <div class="flex">
+            <div>
+              Số lượng:
+              <button
+                style="
+                  background-color: #bca6a6;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="decreaseQuantity(data?.id)"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              {{ data?.quantity }}
+              <button
+                style="
+                  background-color: #37ec37;
+                  border-radius: 20px;
+                  width: 23px;
+                  height: 23px;
+                  color: white;
+                "
+                (click)="increaseQuantity(data?.id)"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          (click)="deleteProduct(data?.id)"
+          style="
+            height: 40px;
+            padding: 10px;
+            color: rgb(255, 48, 48);
+            border-radius: 10px;
+            margin-top: 15px;
+          "
+        >
+          <i class="fa-solid fa-trash fa-2xl"></i>
+        </button>
+        <!-- <ng-template #confirmDeleteTemplate let-productId="productId">
+                    <button (click)="showConfirmDeleteDialog = true" style="height: 40px;padding: 10px; color: rgb(255, 48, 48); border-radius: 10px; margin-top: 15px;">
+                        <i class="fa-solid fa-trash fa-2xl"></i>
+                    </button>
+                    <div *ngIf="showConfirmDeleteDialog">
+                        <div style="background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: flex; justify-content: center; align-items: center;">
+                        <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
+                            <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                            <button style="margin-right: 10px;" (click)="deleteProduct(productId); showConfirmDeleteDialog = false;">Đồng ý</button>
+                            <button (click)="showConfirmDeleteDialog = false;">Hủy</button>
+                        </div>
+                        </div>
+                    </div>
+                    </ng-template> -->
+      </div>
+    </div>
+    <div style="position: relative">
+      <div
+        class="fixed-flex-container"
+        style="margin-left: 10px; margin-right: 10px; margin-top: 10px"
+      >
+        <div style="margin-top: 10px; font-weight: bold">
+          Tổng hàng: {{ totalPrice | currency : "VND" }}
+        </div>
+        <button
+          class="bg-blue-900 text-white"
+          (click)="addNeworder()"
+          style="padding: 10px; border-radius: 5px"
+          routerLink="/history"
+        >
+          Gọi món
+        </button>
+      </div>
+    </div>
+    <!-- <input type="text" style="width: 100vw; border: 1px solid black; border-radius: 5%; margin-top: 2%;" placeholder="Tìm kiếm trong giỏ hàng"> -->
+  </div>
+  <app-footer></app-footer>
+  <!-- <footer class="footer px-3">
+      <button class=" w-full p-2 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#314ddb]"
+          (click)="submitPayment()" [disabled]="!data">Xác nhận thanh toán</button>
+  </footer> -->
+</div>
+
+<!-- <nz-modal [(nzVisible)]="isVisible" nzTitle="Nhập số tiền" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <div *nzModalContent>
+
+      <nz-space nzDirection="vertical" style="width: 100%">
+
+          <nz-input-number-group *nzSpaceItem [nzAddOnAfter]="addOnBeforeTemplate" style="width: 100%">
+              <nz-input-number class="w-full text-right" style="width: 100%;" [(ngModel)]="customerPayment" [nzMin]="10"
+              [nzMax]="100000000" [nzFormatter]="formatterMoney"
+              [nzParser]="parserMoney"></nz-input-number>
+          </nz-input-number-group>
+          <ng-template #addOnBeforeTemplate>
+              <span>,000 đ</span>
+          </ng-template>
+          <small *ngIf="isError">Số tiền nhập nhỏ hơn tiền hoá đơn</small>
+      </nz-space>
+  </div>
+</nz-modal> -->

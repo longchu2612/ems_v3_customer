@@ -1,0 +1,124 @@
+<div class="flex flex-col mx-auto max-w-2xl">
+  <header class="header h-[70px] w-full border-b border-[#ccc] bg-[#008000]">
+    <div class="inline-header flex h-full items-center">
+      <div class="menu">
+        <span
+          nz-icon
+          nzType="arrow-left"
+          nzTheme="outline"
+          class="text-[20px]"
+          [routerLink]="'/account'"
+        ></span>
+      </div>
+      <div
+        class="logo text-center flex text-[18px] flex gap-[8px] items-center"
+      >
+        <span class="text-[18px] font-medium">TẠO MÃ QR</span>
+      </div>
+      <div class="noti">
+        <span
+          nz-icon
+          nzType="more"
+          nzTheme="outline"
+          class="text-[20px]"
+        ></span>
+      </div>
+    </div>
+  </header>
+  <div class="main-body">
+    <div class="w-full relative">
+      <div class="" *ngIf="noQrcode; else qrcode">
+        <div class="w-full p-3 items-center">
+          <img
+            style="height: 240px; width: 240px; opacity: 0.4"
+            src="assets/images/qrcode.jpg"
+          />
+        </div>
+        <div class="pd-5">
+          <div class="p-3">
+            <div class="flex flex-col form-field">
+              <input
+                [(ngModel)]="amountValue"
+                class="border p-2 mb-2 text-[16px] md:text-[18px] form-input"
+                type="number"
+                placeholder=" "
+                (focus)="amountEntered = true"
+                (blur)="amountEntered = amountValue ? amountEntered : false"
+              />
+              <label for="amount" class="font-bold mb-2 form-label"
+                >Số tiền chuyển</label
+              >
+            </div>
+            <div
+              *ngIf="amountValue"
+              class="text-gray-400 text-[16px] border-b-2 border-gray-200 md:text-[18px]"
+            >
+              {{ convertToWords() }}
+            </div>
+            <div
+              *ngIf="amountEntered && amountValue"
+              class="text-[#ef233c] mb-2"
+            >
+              Người chuyển tiền sẽ không được thay đổi số tiền này
+            </div>
+            <div class="flex flex-col form-field mt-4">
+              <textarea
+                name="content"
+                id="content"
+                class="form-area"
+                [(ngModel)]="areaValue"
+                (focus)="areaEntered = true"
+                (blur)="areaEntered = areaValue ? areaEntered : false"
+              ></textarea>
+              <label for="content" class="font-bold mb-2 form-label"
+                >Nội dung chuyển</label
+              >
+              <div *ngIf="areaEntered && areaValue" class="text-[#ef233c] mb-2">
+                Người chuyển tiền sẽ không được thay đổi nội dung này
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer px-3">
+          <button
+            class="w-full p-2 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#ed7d31] mt-4 md:mt-0"
+            (click)="createQRCode()"
+          >
+            Tạo mã QR
+          </button>
+        </footer>
+        <!-- <qrcode [qrdata]="yourStringValue" ></qrcode> -->
+      </div>
+      <ng-template #qrcode>
+        <div class="w-full p-3 items-center">
+          <qrcode (qrCodeURL)="onChangeURL($event)"
+            [qrdata]="data"
+            [width]="240"
+            [errorCorrectionLevel]="'M'"></qrcode>
+          <div class="flex flex-col items-center mt-12 md:mt-8">
+            <div class="text-3xl">Nguyen Van A</div>
+            <div class="text-base">Tài khoản</div>
+            <div class="text-base">Chi nhánh</div>
+            <div class="text-xl">{{ inputValue }} VNĐ</div>
+            <div class="text-base">{{ areaValue }}</div>
+          </div>
+        </div>
+        <footer class="flex flex-row px-3 mt-12 md:mt-8">
+          <a
+            class="w-1/2 py-2 mx-4 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#ed7d31]"
+            [href]="qrCodeDownloadLink"
+            download="qrcode"
+          >
+            Lưu mã QR
+          </a>
+          <button
+            class="w-1/2 py-2 mx-4 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#ed7d31]"
+            (click)="payLoud()"
+          >
+            Thanh toán
+          </button>
+        </footer>
+      </ng-template>
+    </div>
+  </div>
+</div>

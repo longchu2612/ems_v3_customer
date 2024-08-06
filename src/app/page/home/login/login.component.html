@@ -1,0 +1,87 @@
+<div class="flex flex-col">
+    <header class="header w-full p-3 items-center">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">           
+            </div>
+            <div class="text-center flex gap-[8px] items-center pt-3">
+                <img style="width: 60%; height: 20%;margin: auto !important;" src="../../../../assets/images/logo_EMS.png">
+            </div>
+            <div class="noti">
+            </div>
+        </div>
+    </header>
+    <!-- <div class="main-body">
+        <div class="w-full relative px-3  border border-[#fff]">
+            <div class="pd-5">
+                <div class="flex px3">
+                    <span for="password" class="text-[18px]" >Mật khẩu:</span>
+                    <span>
+                        <input name="password" id="password" #password="ngModel" required [(ngModel)]="loginForm.password" class="form-control" type="password">
+                    </span>
+                    <span *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger" id="er2">
+                        <span [hidden]="!password.errors?.['required']" class="mb-3">
+                            Hãy nhập mật khẩu!
+                        </span>
+                    </span>
+                    <footer class="footer px-3 mt-10">
+                        <button class=" w-full p-2 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#314ddb]" (click)="login()">Đăng nhập</button>
+                        <span class="text-center text-darkblue flex text-[18px] flex gap-[8px] items-center">
+                            Bạn chưa có tài khản? <a [routerLink]="['/signup']">Đăng ký</a>
+                        </span>
+                        <span class="text-center flex text-[18px] flex gap-[8px] items-center">
+                            <a [routerLink]="['/forgetpassword']"><u>Quên mật khẩu?</u></a>
+                        </span>
+                    </footer>
+                </div>
+                < class="flex p-3">
+                    <span for="password" class="text-[18px]" >Mật khẩu:</span>
+                    <span>
+                        <input name="password" id="password" #password="ngModel" required [(ngModel)]="loginForm.password" class="form-control" type="password">
+                    </span>
+                    <span *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger" id="er2">
+                        <span [hidden]="!password.errors?.['required']" class="mb-3">
+                            Hãy nhập mật khẩu!
+                        </span>
+                    </span>
+                
+                <div class="mt-10">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+        <div class="container m-auto">
+            <form class="form  w-full items-center">
+            
+                <div class="form-item text-center items-center mt-6">
+
+                    <input name="name" id="name" #name="ngModel" required [(ngModel)]="loginForm.name" placeholder="Họ Tên" class="form-control pt-2" type="text">
+                    <label *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger my-4" id="er1">
+                        <span [hidden]="!name.errors?.['required']" class="mb-3 ">
+                            Họ tên là bắt buộc!
+                        </span>
+                    </label>
+                    <label style="color: black;">Chọn bàn ăn</label>
+                    <select style="border: 1px solid #878585;
+                border-radius: 5px;
+                " name="table" id="table" [(ngModel)]="loginForm.tableId" class="form-control mt-1 px-4">
+                        <ng-container style="max-height: 100px;" *ngFor="let item of listTable">
+                            <option [value]="item.id">{{item.name}}</option>
+                        </ng-container>
+                    </select>
+
+                    
+                    
+                   
+                    <button style="font-weight: 500; background-color: #1B4965 !important;" type="submit" class="button is-button text-center text-white my-4" [disabled]="!loginForm.name || loginForm.name.trim() === ''" (click)="login()">Truy cập bằng khách</button>
+                    <!-- <div style="justify-content: center;" class="openingSentence text-center flex text-[16px] flex gap-[8px] items-center pt-2">
+                        Bạn chưa có tài khản? <a [routerLink]="['/signup']">Đăng ký</a>
+                    </div> -->
+                    <!-- <div style="justify-content: center;" class="w-full text-center flex text-[16px] flex gap-[8px] items-center">
+                        <a [routerLink]="['/forgetpassword']"><u>Quên mật khẩu?</u></a>
+                    </div> -->
+                </div>
+            </form>
+        </div>
+</div>

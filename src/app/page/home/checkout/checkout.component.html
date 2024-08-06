@@ -1,0 +1,98 @@
+<div class="flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]" [routerLink]="'/order'"></span>
+            </div>
+            <!-- <div class="page-title"></div> -->
+            <div class="logo text-center flex-1">
+                <span class="text-[20px] font-medium">Chi tiết đơn</span>
+                <!-- <img src="https://via.placeholder.com/600x250" alt=""> -->
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <div class="main-body pb-[146px]">
+        <div class="w-full relative" *ngIf="data; else noData">
+            <div class="flex py-1 items-center w-full border-b border-[#ccc]">
+                <div class="col flex-1 py-2 px-2 flex items-center gap-[8px]">
+                    <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span>
+                    <span>
+                        <ng-container *ngIf="data.category == 1">Ăn tại bàn</ng-container>
+                        <ng-container *ngIf="data.category == 2">Mang đi</ng-container>
+                        <ng-container *ngIf="data.category == 3">Giao hàng</ng-container>
+                        <ng-container *ngIf="data.category == 4">Đối tác</ng-container>
+                    </span>
+                </div>
+                <div class="col flex-1 py-2 px-2 border-l border-[#ccc]">
+                    {{data.location}} - {{data.table_name}}
+                </div>
+            </div>
+            <div class="list-payment">
+                <ul class="m-0" >
+                    <li class="flex justify-between py-3 border-b-2 border-[#ccc]" *ngFor="let item of data.order_list">
+                        <div class="left">
+                            <p class="text-medium mb-1 text-[18px] font-medium">{{item.product_name}}</p>
+                            <span>{{item.product_price | number: '1.0-2'}}đ</span>
+                        </div>
+                        <div class="right">
+                            <p class="text-[18px] mb-2">{{item.price | number: '1.0-2'}}</p>
+                            <div>
+                                <button class="rounded-full border w-[25px] h-[25px] mr-1 text-[#e52424]"
+                                    (click)="decrease(item)">-</button>
+                                {{item.quantity}}
+                                <button class="rounded-full border w-[25px] h-[25px] ml-1 text-[#48b8e1]"
+                                    (click)="increase(item)">+</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                        <div class="flex items-center gap-[8px]">
+                            <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span>
+                            <span>
+                                Tiền hàng
+
+                            </span>
+                        </div>
+                        <div>
+                            {{data.total_price | number: '1.0-2'}}đ
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ng-template class="w-full relative" #noData>
+            <div class="mt-10">
+                Vui lòng chọn đơn trên màn hình đơn hàng để thao tác. <a [routerLink]="'/order'">Quay lại</a>
+
+            </div>
+        </ng-template>
+    </div>
+    <footer class="footer px-3 bg-[#fff]">
+        <div class="flex justify-between border-t border-b px-1 py-2 bg-[#daecff]" *ngIf="data; ">
+            <span class="text-[16px]">SL: {{data.total_quantity}}</span>
+            <span class="font-bold text-[18px]">Tổng: {{data.total_price | number: '1.0-2'}}đ</span>
+        </div>
+        <div>
+            <ul class="m-0 flex py-1">
+                <li class="flex-1 py-2 text-center text-[#3d6bce]">Khuyến mãi</li>
+                <li class="flex-1 py-2 text-center border-l text-[#666]">Chiết khấu</li>
+                <li class="flex-1 py-2 text-center border-l text-[#666]">Thuế & phí</li>
+            </ul>
+        </div>
+        <div>
+            <div class="flex justify-between gap-[10px]">
+                <button
+                    class="grow flex items-center p-2 rounded-[5px] gap-[5px] border justify-center text-[#fff] bg-[#31e93d]">
+                    <span nz-icon nzType="plus-circle" nzTheme="outline" class=""></span>
+                    <span>Thêm</span>
+                </button>
+                <button class="grow p-2 border rounded-[5px] border-[#ccc]">Lưu</button>
+                <button class="grow p-2 border rounded-[5px] text-[#fff] bg-[#314ddb]" [disabled]="!data" (click)="submitCheckout()">Yêu cầu thanh toán</button>
+            </div>
+        </div>
+    </footer>
+</div>

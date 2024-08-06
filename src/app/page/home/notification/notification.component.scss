@@ -1,0 +1,25 @@
+.header div{
+    color:#1B4965 ;
+    font-weight: bold;
+    
+}
+.contents{
+    margin: 10px 10px 90px 10px;
+}
+.fixed-flex-container {
+    position: fixed;
+    bottom: 100px; /* Cách 80px từ đáy của cửa sổ */
+    left: -8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1); /* Tạo bóng để phân biệt với nền */
+    z-index: 999; /* Đảm bảo nó hiển thị trên tất cả các phần tử khác */
+}
+.listproducts{
+    background-color: antiquewhite !important; 
+    border-radius: 20px;
+}

@@ -1,0 +1,100 @@
+<div class="flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc] bg-[#008000]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]" [routerLink]="'/informationaccount'"></span>
+            </div>
+            <!-- <div class="page-title"></div> -->
+            <div class="logo text-center flex text-[20px] flex gap-[8px] items-center">
+                <!-- <span role="img" aria-label="user" class="anticon anticon-user"> -->
+                    <!-- <svg viewBox="64 64 896 896" focusable="false" data-icon="user" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></span> -->
+                <span class="text-[18px] font-medium">Thay đổi thông tin</span>
+                <!-- <img src="https://via.placeholder.com/600x250" alt=""> -->
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <!-- <div class="main-body">
+        <div class="">
+            <div class="w-full relative ">
+                <div class="p-3">
+                    <span for="name">Tên tài khoản:</span>
+                    <span>
+                        <input id="name" name="name" [(ngModel)]="changeInfor.name" #name="ngModel" required type="text">
+                    </span>
+                    <span *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger" >
+                        <span [hidden]="!name.errors?.['required']" class="er1">
+                            Phải nhập tên tài khoản!
+                        </span>
+                    </span>
+                </div>
+                <div class="p-3">
+                    <span for="phone">Số điện thoại:</span>
+                    <span>
+                        <input id="phone" name="phone" [(ngModel)]="changeInfor.phone" #phone="ngModel" required type="text">
+                    </span>
+                    <span *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger" >
+                        <span [hidden]="!phone.errors?.['required']" class="er1">
+                            Hãy nhập số điện thoại mới!
+                        </span>
+                    </span>
+                </div>
+                <div class="p-3">
+                    <span for="email">Email:</span>
+                    <span>
+                        <input id="email" name="email" [(ngModel)]="changeInfor.email" #email="ngModel" required type="email">
+                    </span>
+                    <span *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger" >
+                        <span [hidden]="!email.errors?.['required']" class="er1">
+                            Hãy nhập email mới!
+                        </span>
+                    </span>
+                </div>
+                <div class="p-3 mt-10">
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="container w-full items-center m-auto">
+        <form class="form">
+            <div class="form-item w-full flex items-center text-center m-auto">
+                <div style="justify-content: center;">
+                    <img class="imgchange" src="https://cdn-icons-png.flaticon.com/512/4312/4312325.png" alt="avatar">
+                </div>    
+            </div>
+            <div class="form-item pt-3">
+                <span role="img" aria-label="user" class="anticon anticon-user"><svg class="pt-3" viewBox="64 64 896 896" focusable="false" data-icon="user" width="2em" height="2em" fill="currentColor" aria-hidden="true"><path style="fill: #ed7d31;" d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></span>
+                <input id="name" name="name" [(ngModel)]="changeInfor.name" #name="ngModel" required placeholder="Tên tài khoản" type="text">
+                <label *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger pl-2">
+                    <span [hidden]="!name.errors?.['required']">
+                        Hãy nhập tên tài khoản!
+                    </span>
+                </label>
+            </div>
+            <div class="form-item">
+                <span role="img" aria-label="mobile" class="anticon anticon-mobile"><svg class="pt-3" viewBox="64 64 896 896" focusable="false" data-icon="mobile" width="2em" height="2em" fill="currentColor" aria-hidden="true"><path style="fill: #ed7d31;" d="M744 62H280c-35.3 0-64 28.7-64 64v768c0 35.3 28.7 64 64 64h464c35.3 0 64-28.7 64-64V126c0-35.3-28.7-64-64-64zm-8 824H288V134h448v752zM472 784a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg></span>
+                <input id="phone" name="phone" [(ngModel)]="changeInfor.phone" #phone="ngModel" placeholder="Số điện thoại" required type="text">   
+                <label *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger pl-2" >
+                    <span [hidden]="!phone.errors?.['required']" class="er1">
+                        Hãy nhập số điện thoại mới!
+                    </span>
+                </label>
+            </div>
+            <div class="form-item">
+                <span role="img" aria-label="mail" class="anticon anticon-mail"><svg class="pt-3" viewBox="64 64 896 896" focusable="false" data-icon="mail" width="2em" height="2em" fill="currentColor" aria-hidden="true"><path style="fill: #ed7d31;" d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path></svg></span>
+                <input id="email" name="email" [(ngModel)]="changeInfor.email" #email="ngModel" required placeholder="Email" type="email">  
+                <label *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger pl-2" >
+                    <span [hidden]="!email.errors?.['required']" class="er1">
+                        Hãy nhập email mới!
+                    </span>
+                </label>
+            </div>
+        </form>
+    </div>
+    <footer class="footer px-3">
+        <button type="submit" class=" w-full p-2 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#ed7d31]" (click)="changeInforAcc()">Xác nhận</button>
+    </footer>
+</div>

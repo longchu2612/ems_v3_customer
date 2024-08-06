@@ -1,0 +1,196 @@
+<div class="flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc] bg-[#008000]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]" [routerLink]="'/account'"></span>
+            </div>
+            <div class="logo text-center flex text-[18px] flex gap-[8px] items-center">
+                <!-- <span role="img" aria-label="user" class="anticon anticon-user">
+                    <svg viewBox="64 64 896 896" focusable="false" data-icon="user" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></span> -->
+                <span class="text-[18px] font-medium">Tài khoản ngân hàng</span>
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <div class="main-body">
+        <div class="w-full relative">
+            <div class="pb-5">
+                <div class="w-full items-center justify-between py-2 text-[16px]" *ngIf="bankaccount; else nobank">
+                    <div class="flex w-full gap-[15px] border border-[#888888] bg-[#009900] px-3" id="card">
+                        <div class="p-3">
+                            <strong class="text-[20px]">MBBank</strong> 
+                        </div><br>
+                        <div class="justify-between py-2 p-3 pt-3 mt-2">
+                            <span class="">
+                                Số tài khoản/ số thẻ:
+                            </span><br>
+                            <span>
+                                ***********868686
+                            </span>
+                        </div>
+                    </div>
+                    <button class="w-full mt-3 p-2 border bg-[#ed7d31] text-[20px] text-center text-white" (click)="unLink()">Hủy liên kết</button>
+                </div>
+                <ng-template #nobank>
+                    <div class="flex w-full gap-[15px] border border-[#888888] text-white bg-[#CC33CC] p-3">
+                        <div class=" w-full text-[20px] text-center">
+                            <span role="img" aria-label="plus" class="anticon anticon-plus"><svg class="pb-2" viewBox="64 64 896 896" focusable="false" data-icon="plus" width="1.5em" height="1.5em" fill="currentColor" aria-hidden="true"><defs><style></style></defs><path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path><path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path></svg></span>
+                            <span>Thêm ngân hàng</span>
+                        </div>
+                    </div>
+                </ng-template>
+                <div class="w-full border border-[#888888] mt-5">
+                    <div class="text-[20px] p-1"><strong>DỊCH VỤ HỖ TRỢ</strong></div><br>
+                    <div class="">
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Nạp tiền vào tài khoản
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    Miễn phí
+                                </div>
+                            </li>
+                        </div>
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Thanh toán dịch vụ
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    Miễn phí
+                                </div>
+                            </li>
+                        </div>
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Rút tiền
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    Miễn phí
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full border border-[#888888] mt-5">
+                    <div class="text-[20px] p-1"><strong>HẠN MỨC GIAO DỊCH</strong></div><br>
+                    <div class="">
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Nạp tiền tối thiểu
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    20.000đ
+                                </div>
+                            </li>
+                        </div>
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Nạp tiền tối đa
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    50.000.000đ
+                                </div>
+                            </li>
+                        </div>
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Thanh toán tối thiểu
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    20.000đ
+                                </div>
+                            </li>
+                        </div>
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Thanh toán tối đa
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    50.000.000đ
+                                </div>
+                            </li>
+                        </div>
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        Rút tiền tối thiểu
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    50.000đ
+                                </div>
+                            </li>
+                        </div>
+                        <div class="flex w-full text-[18px]">
+                            <li class="flex justify-between py-2 text-[16px] border-b border-dashed">
+                                <div class="flex items-center pl-3 gap-[8px]">
+                                    <!-- <span nz-icon nzType="arrow-left" nzTheme="outline" class=""></span> -->
+                                    <span>
+                                        rút tiền tối đa
+                                    </span>
+                                </div>
+                                <div class="pr-3">
+                                    30.000.000đ
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex border border-[#ccc] bg-[#CCFFCC]">
+                    <div class="flex justify-between gap-[10px]">
+                        <div class="text-center flex text-[18px] gap-[8px] items-center">
+                            <div class="">
+                                <span role="img" aria-label="bank" id="anticon_bank" class="anticon anticon-bank pl-1"><svg class="pb-1" viewBox="64 64 896 896" focusable="false" data-icon="exclamation-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path
+                                    
+                                     style="fill: #0000FF;" d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"></path></svg>
+                                </span>
+                            </div>
+                            <div class="pt-2 pl-1">
+                                <span class="text-center text-[14px]">Lưu ý:</span>
+                            </div>
+                        </div>
+                        <div class="items-center gap-[8px] ">
+                            <div class="pl-6 pb-2 pr-4">
+                                <span class="text-center text-[14px]">
+                                    Khi thanh toán có thể trả bằng tiền mặt hoặc chuyển khoản, khi xảy ra sự cố hãy thông báo cho chúng tôi, chúng tôi sẽ xử lý vấn đề của bạn nhanh nhất có thể. Trân trọng! 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

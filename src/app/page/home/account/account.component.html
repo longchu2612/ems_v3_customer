@@ -1,0 +1,125 @@
+<div class="flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc] bg-[#008000]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]" [routerLink]="['/order']"></span>
+            </div>
+            <!-- <div class="page-title"></div> -->
+            <div class="logo text-center flex text-[18px] flex gap-[8px] items-center">
+                <span role="img" aria-label="user" class="anticon anticon-user">
+                    <svg viewBox="64 64 896 896" focusable="false" data-icon="user" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></span>
+                <span class="text-[18px] font-medium">{{  generalReport.name }}</span>
+                <!-- <img src="https://via.placeholder.com/600x250" alt=""> -->
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <div class="main-body">
+        <div class="">
+            <div class="w-full relative">
+                <div class="flex justify-between py-2 text-[16px] border-b border-[#ccc]">
+                    <div class="mt-1 flex justify-between gap-[8px]">
+                        <span><strong>Báo cáo ngày:</strong></span>
+                        <span class="input-wrapper">
+                            <input id="inputdate" (dateTimeChange)="onChangeDate()" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]="selectedMoments"><owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                        </span>
+                    </div>
+                </div>
+                <div class="flex py-1 items-center w-full border-b border-[#ccc]" id="total1">
+                        <div class="flex-1 py-2 px-2 flex items-center gap-[8px]">
+                            <span>
+                                Tổng đơn
+                            </span>
+                            <span>
+                                {{generalReport.count}}
+                            </span>
+                        </div>
+                        <div class="flex-1 py-2 px-2 flex items-center gap-[8px] border-l border-[#ccc]">
+                            <span>
+                                Tổng doanh thu
+                            </span>
+                            <span>
+                                {{generalReport.total}}
+                            </span>
+                        </div>
+                </div>
+            </div>
+            <div class="border-b border-[#ccc]">
+                <a [routerLink]="['/order']" class="flex justify-between gap-[10px] ">
+                    <div class="flex p-3 items-center gap-[8px] ">
+                        <span role="img" aria-label="shop" class="anticon anticon-shop "><svg viewBox="64 64 896 896" focusable="false" data-icon="shop" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #FF4500" d="M882 272.1V144c0-17.7-14.3-32-32-32H174c-17.7 0-32 14.3-32 32v128.1c-16.7 1-30 14.9-30 31.9v131.7a177 177 0 0014.4 70.4c4.3 10.2 9.6 19.8 15.6 28.9v345c0 17.6 14.3 32 32 32h676c17.7 0 32-14.3 32-32V535a175 175 0 0015.6-28.9c9.5-22.3 14.4-46 14.4-70.4V304c0-17-13.3-30.9-30-31.9zM214 184h596v88H214v-88zm362 656.1H448V736h128v104.1zm234 0H640V704c0-17.7-14.3-32-32-32H416c-17.7 0-32 14.3-32 32v136.1H214V597.9c2.9 1.4 5.9 2.8 9 4 22.3 9.4 46 14.1 70.4 14.1s48-4.7 70.4-14.1c13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 13.8-5.8 26.8-13.2 38.7-22.1.2-.1.4-.1.6 0a180.4 180.4 0 0038.7 22.1c22.3 9.4 46 14.1 70.4 14.1 24.4 0 48-4.7 70.4-14.1 3-1.3 6-2.6 9-4v242.2zm30-404.4c0 59.8-49 108.3-109.3 108.3-40.8 0-76.4-22.1-95.2-54.9-2.9-5-8.1-8.1-13.9-8.1h-.6c-5.7 0-11 3.1-13.9 8.1A109.24 109.24 0 01512 544c-40.7 0-76.2-22-95-54.7-3-5.1-8.4-8.3-14.3-8.3s-11.4 3.2-14.3 8.3a109.63 109.63 0 01-95.1 54.7C233 544 184 495.5 184 435.7v-91.2c0-.3.2-.5.5-.5h655c.3 0 .5.2.5.5v91.2z"></path></svg></span>
+                        <span>Cửa hàng</span>
+                    </div>
+                    <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                        <span nz-icon nzType="right" nzTheme="outline"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="border-b border-[#ccc]">
+                <a [routerLink]="['/bank']" class="flex justify-between gap-[10px]">
+                    <div class="flex p-3 items-center gap-[8px] ">
+                        <span role="img" aria-label="bank" class="anticon anticon-bank"><svg viewBox="64 64 896 896" focusable="false" data-icon="bank" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #FFA500" d="M894 462c30.9 0 43.8-39.7 18.7-58L530.8 126.2a31.81 31.81 0 00-37.6 0L111.3 404c-25.1 18.2-12.2 58 18.8 58H192v374h-72c-4.4 0-8 3.6-8 8v52c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-52c0-4.4-3.6-8-8-8h-72V462h62zM512 196.7l271.1 197.2H240.9L512 196.7zM264 462h117v374H264V462zm189 0h117v374H453V462zm307 374H642V462h118v374z"></path></svg></span>
+                        <span>Tài khoản ngân hàng</span>
+                    </div>
+                    <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                        <span nz-icon nzType="right" nzTheme="outline"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="border-b border-[#ccc]">
+                <a [routerLink]="['/qrcode']" class="flex justify-between gap-[10px]">
+                    <div class="flex p-3 items-center gap-[8px] ">
+                        <!-- <span role="img" aria-label="schedule" class="anticon anticon-schedule"><svg viewBox="64 64 896 896" focusable="false" data-icon="schedule" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #008000" d="M928 224H768v-56c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v56H548v-56c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v56H328v-56c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v56H96c-17.7 0-32 14.3-32 32v576c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V256c0-17.7-14.3-32-32-32zm-40 568H136V296h120v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56h148v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56h148v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56h120v496zM416 496H232c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm0 136H232c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm308.2-177.4L620.6 598.3l-52.8-73.1c-3-4.2-7.8-6.6-12.9-6.6H500c-6.5 0-10.3 7.4-6.5 12.7l114.1 158.2a15.9 15.9 0 0025.8 0l165-228.7c3.8-5.3 0-12.7-6.5-12.7H737c-5-.1-9.8 2.4-12.8 6.5z"></path></svg></span> -->
+                        <span role="img" aria-label="qrcode" class="anticon anticon-qrcode"><svg style="fill: rgb(91, 91, 91);" viewBox="64 64 896 896" focusable="false" data-icon="qrcode" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #1d1f1d;" d="M468 128H160c-17.7 0-32 14.3-32 32v308c0 4.4 3.6 8 8 8h332c4.4 0 8-3.6 8-8V136c0-4.4-3.6-8-8-8zm-56 284H192V192h220v220zm-138-74h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm194 210H136c-4.4 0-8 3.6-8 8v308c0 17.7 14.3 32 32 32h308c4.4 0 8-3.6 8-8V556c0-4.4-3.6-8-8-8zm-56 284H192V612h220v220zm-138-74h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm590-630H556c-4.4 0-8 3.6-8 8v332c0 4.4 3.6 8 8 8h332c4.4 0 8-3.6 8-8V160c0-17.7-14.3-32-32-32zm-32 284H612V192h220v220zm-138-74h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm194 210h-48c-4.4 0-8 3.6-8 8v134h-78V556c0-4.4-3.6-8-8-8H556c-4.4 0-8 3.6-8 8v332c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V644h78v102c0 4.4 3.6 8 8 8h190c4.4 0 8-3.6 8-8V556c0-4.4-3.6-8-8-8zM746 832h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm142 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path></svg></span>
+                        <span>Tạo QR thanh toán</span>
+                    </div>
+                    <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                        <span nz-icon nzType="right" nzTheme="outline"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="border-b border-[#ccc]">
+                <a [routerLink]="['/notificationorder']" class="flex justify-between gap-[10px]">
+                    <div class="flex p-3 items-center gap-[8px] ">
+                        <!-- <span role="img" aria-label="interaction" class="anticon anticon-interaction"><svg viewBox="64 64 896 896" focusable="false" data-icon="interaction" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #191970" d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656zM304.8 524h50.7c3.7 0 6.8-3 6.8-6.8v-78.9c0-19.7 15.9-35.6 35.5-35.6h205.7v53.4c0 5.7 6.5 8.8 10.9 5.3l109.1-85.7c3.5-2.7 3.5-8 0-10.7l-109.1-85.7c-4.4-3.5-10.9-.3-10.9 5.3V338H397.7c-55.1 0-99.7 44.8-99.7 100.1V517c0 4 3 7 6.8 7zm-4.2 134.9l109.1 85.7c4.4 3.5 10.9.3 10.9-5.3v-53.4h205.7c55.1 0 99.7-44.8 99.7-100.1v-78.9c0-3.7-3-6.8-6.8-6.8h-50.7c-3.7 0-6.8 3-6.8 6.8v78.9c0 19.7-15.9 35.6-35.5 35.6H420.6V568c0-5.7-6.5-8.8-10.9-5.3l-109.1 85.7c-3.5 2.5-3.5 7.8 0 10.5z"></path></svg></span> -->
+                        <span role="img" aria-label="audit" class="anticon anticon-audit"><svg viewBox="64 64 896 896" focusable="false" data-icon="audit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #008000" d="M296 250c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H296zm184 144H296c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm-48 458H208V148h560v320c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V108c0-17.7-14.3-32-32-32H168c-17.7 0-32 14.3-32 32v784c0 17.7 14.3 32 32 32h264c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm440-88H728v-36.6c46.3-13.8 80-56.6 80-107.4 0-61.9-50.1-112-112-112s-112 50.1-112 112c0 50.7 33.7 93.6 80 107.4V764H520c-8.8 0-16 7.2-16 16v152c0 8.8 7.2 16 16 16h352c8.8 0 16-7.2 16-16V780c0-8.8-7.2-16-16-16zM646 620c0-27.6 22.4-50 50-50s50 22.4 50 50-22.4 50-50 50-50-22.4-50-50zm180 266H566v-60h260v60z"></path></svg></span>
+                        <span>Thông báo đơn</span>
+                    </div>
+                    <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                        <span nz-icon nzType="right" nzTheme="outline"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="border-b border-[#ccc]">
+                <a [routerLink]="['/changepassword']" class="flex justify-between gap-[10px]">
+                    <div class="flex p-3 items-center gap-[8px] ">
+                        <span role="img" aria-label="interaction" class="anticon anticon-interaction"><svg viewBox="64 64 896 896" focusable="false" data-icon="interaction" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #191970" d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656zM304.8 524h50.7c3.7 0 6.8-3 6.8-6.8v-78.9c0-19.7 15.9-35.6 35.5-35.6h205.7v53.4c0 5.7 6.5 8.8 10.9 5.3l109.1-85.7c3.5-2.7 3.5-8 0-10.7l-109.1-85.7c-4.4-3.5-10.9-.3-10.9 5.3V338H397.7c-55.1 0-99.7 44.8-99.7 100.1V517c0 4 3 7 6.8 7zm-4.2 134.9l109.1 85.7c4.4 3.5 10.9.3 10.9-5.3v-53.4h205.7c55.1 0 99.7-44.8 99.7-100.1v-78.9c0-3.7-3-6.8-6.8-6.8h-50.7c-3.7 0-6.8 3-6.8 6.8v78.9c0 19.7-15.9 35.6-35.5 35.6H420.6V568c0-5.7-6.5-8.8-10.9-5.3l-109.1 85.7c-3.5 2.5-3.5 7.8 0 10.5z"></path></svg></span>
+                        <span>Đổi mật khẩu</span>
+                    </div>
+                    <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                        <span nz-icon nzType="right" nzTheme="outline"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="border-b border-[#ccc]">
+                <a [routerLink]="['/support']" class="flex justify-between gap-[10px]">
+                    <div class="flex p-3 items-center gap-[8px] ">
+                        <span role="img" aria-label="customer-service" class="anticon anticon-customer-service"><svg viewBox="64 64 896 896" focusable="false" data-icon="customer-service" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path style="fill: #0676e6" d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"></path></svg></span>
+                        <span>Hỗ trợ</span>
+                    </div>
+                    <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                        <span nz-icon nzType="right" nzTheme="outline"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="flex p-3 items-center gap-[10px] mt-8">
+
+            </div>
+            <footer class="form-item text-center items-center">
+                <button style="font-weight: 500; background-color: #1B4965 !important;" class="button is-button text-center text-white" [routerLink]="['/login']" (click)="logout()">Đăng Xuất</button>
+            </footer>
+        </div>
+    </div>
+</div>

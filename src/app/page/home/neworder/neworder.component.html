@@ -1,0 +1,169 @@
+<div class="content flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]"
+                    [routerLink]="'/order'"></span>
+            </div>
+            <!-- <div class="page-title"></div> -->
+            <div class="logo text-center flex-1">
+                <span class="text-[18px] font-medium">Thêm Sản phẩm</span>
+                <!-- <img src="https://via.placeholder.com/600x250" alt=""> -->
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <div class="card p-3 rounded-[8px]">
+        <div class="card-title ">
+            <div class="flex text-[18px] flex gap-[8px] items-center">
+                <span nz-icon nzType="container" nzTheme="outline" class=""></span>
+                <span>
+                    Thông tin sản phẩm
+                </span>
+            </div>
+        </div>
+        <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+        </div>
+        <div class="card-content">
+            <div class="">
+                <div style="display: flex; flex-direction: row;">
+                    <img style="height: 70px; width: 80px;"
+                        src="https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/09_2022/quan-com-tam-o-ha-noi-.jpg">
+                    <span class="pl-2 w-full card-text" style="text-transform:capitalize;">
+                        <!-- <ng-container *ngIf="data.category == 1">Ăn tại bàn</ng-container>
+                        <ng-container *ngIf="data.category == 2">Mang đi</ng-container>
+                        <ng-container *ngIf="data.category == 3">Giao hàng</ng-container>
+                        <ng-container *ngIf="data.category == 4">Đối tác</ng-container> -->
+                        <!-- Cơm sườn bì chả -->
+                        {{productInfo.name}}
+                    </span>
+                    <div style="position: relative;">
+                        <span class="price ">{{ productInfo.price | currency: 'VND' }}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card p-3 rounded-[8px]">
+        <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+        </div>
+        <div class="card-content">
+            <div class="">
+                <!-- <div class="flex justify-between gap-[10px]">
+                    <div class="flex items-center gap-[8px]">
+                        <span role="img" aria-label="diff" class="anticon anticon-diff"><svg viewBox="64 64 896 896"
+                                focusable="false" data-icon="diff" width="1.5em" height="1.5em" fill="currentColor"
+                                aria-hidden="true">
+                                <path style="fill: green;"
+                                    d="M476 399.1c0-3.9-3.1-7.1-7-7.1h-42c-3.8 0-7 3.2-7 7.1V484h-84.5c-4.1 0-7.5 3.1-7.5 7v42c0 3.8 3.4 7 7.5 7H420v84.9c0 3.9 3.2 7.1 7 7.1h42c3.9 0 7-3.2 7-7.1V540h84.5c4.1 0 7.5-3.2 7.5-7v-42c0-3.9-3.4-7-7.5-7H476v-84.9zM560.5 704h-225c-4.1 0-7.5 3.2-7.5 7v42c0 3.8 3.4 7 7.5 7h225c4.1 0 7.5-3.2 7.5-7v-42c0-3.8-3.4-7-7.5-7zm-7.1-502.6c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v704c0 17.7 14.3 32 32 32h512c17.7 0 32-14.3 32-32V397.3c0-8.5-3.4-16.6-9.4-22.6L553.4 201.4zM664 888H232V264h282.2L664 413.8V888zm190.2-581.4L611.3 72.9c-6-5.7-13.9-8.9-22.2-8.9H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h277l219 210.6V824c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V329.6c0-8.7-3.5-17-9.8-23z">
+                                </path>
+                            </svg>
+                        </span>
+                        <h5>Chọn đồ uống thêm: </h5>
+                    </div>
+                </div> -->
+                <!-- <div style="display: flex; flex-direction: column;" class="mt-3 justify-between gap-[10px]">
+                    <div class="w-full flex">
+                        <span>
+                            <input type="radio" name="drink" id="cocacola">
+                            <label for="cocacola" class="pl-1 pr-1">Coca cola</label>
+                        </span>
+                        <span>10.000đ</span>
+                    </div>
+                    <div class="w-full flex">
+                        <span>
+                            <input type="radio" name="drink" id="nuoccam">
+                            <label for="nuoccam" class="pl-1 pr-1">Nước cam</label>
+                        </span>
+                        <span>15.000đ</span>
+                    </div>
+                    <div class="w-full flex">
+                        <span>
+                            <input type="radio" name="drink" id="trachanh">
+                            <label for="trachanh" class="pl-1 pr-1">Trà chanh</label>
+                        </span>
+                        <span>10.000đ</span>
+                    </div>
+                </div> -->
+                <!-- <div class="mt-3 justify-between gap-[10px] p-2 rounded-[5px] flex border" (click)="isVisible = true"> -->
+            </div>
+        </div>
+    </div>
+    <div class="card rounded-[8px]">
+        <!-- <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+            <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+        </div> -->
+        <div class="card-body">
+            <h5 class="card-title">
+                Ghi chú
+            </h5>
+            <div class="form-group w-full">
+                <input type="text">
+            </div>
+        </div>
+    </div>
+    <div class="card" (click)="openModal()">
+        <h5>
+            Giảm giá cho mặt hàng
+        </h5>
+        <div class="card-body discount p-1">
+            <span nz-icon nzType="bank" nzTheme="twotone" class="text-[20px] p-2 border-r"></span>
+            <span nz-icon nzType="dollar-circle" nzTheme="twotone" class="text-[20px] p-2 border-r"></span>
+            <input type="text" readonly value="{{discountAmount | number :'1.0-3'}}">
+            <span class="currency">₫</span> 
+        </div>
+    </div>
+
+
+    <footer class="footer px-3">
+        <button class="w-full p-2 rounded-[5px] text-[#fff] text-[20px] text-center bg-[#ed7d31]" [routerLink]="'/bill'" (click)="takeInfo(productInfo)">Thành tiền: {{totalPrice | currency: 'VND'}}</button>
+    </footer>
+
+    <div class="form-group quantity mt-auto flex justify-content-center">
+        <div class="circle btn btn-default" (click)="reduce()">
+            <span>-</span>
+        </div>
+        <span>{{quantity| number: '2.0-0' }}</span>
+        <div class="circle btn btn-default" (click)="add()">
+            <span>+</span>
+        </div>
+    </div>
+
+    <div class="modal fixed" (click)="closeModal($event)" *ngIf="isModalOpen">
+        <div class="modal-container w-full">
+            <h1>Giảm giá</h1>
+            <div class="calculator">
+                <div class="display">
+                    <input type="text" id="result" readonly value="{{number | number :'1.0-3'}}">
+                    <span class="currency">₫</span> 
+                </div>
+                <button (click)="displayNumber('1')">1</button>
+                <button (click)="displayNumber('2')">2</button>
+                <button (click)="displayNumber('3')">3</button>
+                <button (click)="displayNumber('4')">4</button>
+                <button (click)="displayNumber('5')">5</button>
+                <button (click)="displayNumber('6')">6</button>
+                <button (click)="displayNumber('7')">7</button>
+                <button (click)="displayNumber('8')">8</button>
+                <button (click)="displayNumber('9')">9</button>
+                <button class="button-dot">.</button>
+                <button (click)="displayNumber(0)">0</button>
+                <button class="button-delete" (click)="deleteNumber()">Xóa</button>
+                <button class="button-ok" (click)="checkout()">OK</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+

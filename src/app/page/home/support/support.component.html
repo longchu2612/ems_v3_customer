@@ -1,0 +1,97 @@
+<div  class="flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc] bg-[#008000]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]" [routerLink]="'/account'"></span>
+            </div>
+            <!-- <div class="page-title"></div> -->
+            <div class="logo text-center flex text-[20px] flex gap-[8px] items-center">
+                <!-- <span role="img" aria-label="user" class="anticon anticon-user">
+                    <svg viewBox="64 64 896 896" focusable="false" data-icon="user" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></span> -->
+                <span class="text-[20px] font-medium">Hỗ trợ</span>
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <!-- <div class="main-body w-full m-auto">
+        <div class="w-full relative">
+            <div class="justify-between gap-[10px] text-center items-center">
+                <div class="p-2 items-center gap-[8px] ">
+                    <img src="https://img.freepik.com/vecteurs-libre/support-client-illustration-design-plat_23-2148887720.jpg?w=360">
+                </div>
+            </div>
+            
+            <div class="">
+                <div class="flex justify-between gap-[10px] ">
+                    <div class="flex p-2 items-center gap-[8px] ">
+                        <span role="img" aria-label="facebook" class="anticon anticon-facebook"><svg viewBox="64 64 896 896" focusable="false" data-icon="facebook" width="2em" height="2em" fill="currentColor" aria-hidden="true"><path style="fill: rgb(16, 105, 221);" d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-32 736H663.9V602.2h104l15.6-120.7H663.9v-77.1c0-35 9.7-58.8 59.8-58.8h63.9v-108c-11.1-1.5-49-4.8-93.2-4.8-92.2 0-155.3 56.3-155.3 159.6v89H434.9v120.7h104.3V848H176V176h672v672z"></path></svg></span>
+                        <span class="text-[18px]">fanpage: <a href="">facebook.com/tomotek</a> </span>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between gap-[10px] ">
+                    <div class="flex p-2 items-center gap-[8px] ">
+                        <span role="img" aria-label="mail" class="anticon anticon-mail"><svg viewBox="64 64 896 896" focusable="false" data-icon="mail" width="2em" height="2em" fill="currentColor" aria-hidden="true"><path style="fill: red;" d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path></svg></span>
+                        <span class="text-[18px]">Email: tomotek@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between gap-[10px] ">
+                    <div class="flex p-2 items-center gap-[8px] ">
+                        <span role="img" aria-label="whats-app" class="anticon anticon-whats-app"><svg style="fill: green" viewBox="64 64 896 896" focusable="false" data-icon="whats-app" width="2em" height="2em" fill="currentColor" aria-hidden="true"><defs><style></style></defs><path style="fill: green;" d="M713.5 599.9c-10.9-5.6-65.2-32.2-75.3-35.8-10.1-3.8-17.5-5.6-24.8 5.6-7.4 11.1-28.4 35.8-35 43.3-6.4 7.4-12.9 8.3-23.8 2.8-64.8-32.4-107.3-57.8-150-131.1-11.3-19.5 11.3-18.1 32.4-60.2 3.6-7.4 1.8-13.7-1-19.3-2.8-5.6-24.8-59.8-34-81.9-8.9-21.5-18.1-18.5-24.8-18.9-6.4-.4-13.7-.4-21.1-.4-7.4 0-19.3 2.8-29.4 13.7-10.1 11.1-38.6 37.8-38.6 92s39.5 106.7 44.9 114.1c5.6 7.4 77.7 118.6 188.4 166.5 70 30.2 97.4 32.8 132.4 27.6 21.3-3.2 65.2-26.6 74.3-52.5 9.1-25.8 9.1-47.9 6.4-52.5-2.7-4.9-10.1-7.7-21-13z"></path><path d="M925.2 338.4c-22.6-53.7-55-101.9-96.3-143.3a444.35 444.35 0 00-143.3-96.3C630.6 75.7 572.2 64 512 64h-2c-60.6.3-119.3 12.3-174.5 35.9a445.35 445.35 0 00-142 96.5c-40.9 41.3-73 89.3-95.2 142.8-23 55.4-34.6 114.3-34.3 174.9A449.4 449.4 0 00112 714v152a46 46 0 0046 46h152.1A449.4 449.4 0 00510 960h2.1c59.9 0 118-11.6 172.7-34.3a444.48 444.48 0 00142.8-95.2c41.3-40.9 73.8-88.7 96.5-142 23.6-55.2 35.6-113.9 35.9-174.5.3-60.9-11.5-120-34.8-175.6zm-151.1 438C704 845.8 611 884 512 884h-1.7c-60.3-.3-120.2-15.3-173.1-43.5l-8.4-4.5H188V695.2l-4.5-8.4C155.3 633.9 140.3 574 140 513.7c-.4-99.7 37.7-193.3 107.6-263.8 69.8-70.5 163.1-109.5 262.8-109.9h1.7c50 0 98.5 9.7 144.2 28.9 44.6 18.7 84.6 45.6 119 80 34.3 34.3 61.3 74.4 80 119 19.4 46.2 29.1 95.2 28.9 145.8-.6 99.6-39.7 192.9-110.1 262.7z"></path></svg></span>
+                        <span class="text-[18px]">Số điện thoại liên hệ: 012345678</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-3">
+
+            </div>
+        </div>
+    </div> -->
+    <div class="container w-full items-center m-auto">
+        <div class="form">
+            <div class="form-item w-full flex items-center text-center m-auto">
+                <img class="imgsupport" src="https://img.freepik.com/vecteurs-libre/support-client-illustration-design-plat_23-2148887720.jpg?w=360">
+            </div>
+            <div class="form-item pt-2">
+                <div class="flex items-center gap-[8px] ">
+                    <span role="img" aria-label="facebook" class="anticon anticon-facebook"><svg viewBox="64 64 896 896" focusable="false" data-icon="facebook" width="2em" height="2em" fill="currentColor" aria-hidden="true"><path style="fill: rgb(16, 105, 221);" d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-32 736H663.9V602.2h104l15.6-120.7H663.9v-77.1c0-35 9.7-58.8 59.8-58.8h63.9v-108c-11.1-1.5-49-4.8-93.2-4.8-92.2 0-155.3 56.3-155.3 159.6v89H434.9v120.7h104.3V848H176V176h672v672z"></path></svg></span>
+                    <span class="text-[18px]">fanpage: <a href="">facebook.com/tomotek</a> </span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="flex items-center gap-[8px] ">
+                    <span role="img" aria-label="mail" class="anticon anticon-mail"><svg viewBox="64 64 896 896" focusable="false" data-icon="mail" width="2em" height="2em" fill="currentColor" aria-hidden="true"><path style="fill: red;" d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path></svg></span>
+                    <span class="text-[18px]">Email: tomotek@gmail.com</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="flex justify-between gap-[10px] ">
+                    <div class="flex items-center gap-[8px] ">
+                        <span role="img" aria-label="whats-app" class="anticon anticon-whats-app"><svg style="fill: green" viewBox="64 64 896 896" focusable="false" data-icon="whats-app" width="2em" height="2em" fill="currentColor" aria-hidden="true"><defs><style></style></defs><path style="fill: green;" d="M713.5 599.9c-10.9-5.6-65.2-32.2-75.3-35.8-10.1-3.8-17.5-5.6-24.8 5.6-7.4 11.1-28.4 35.8-35 43.3-6.4 7.4-12.9 8.3-23.8 2.8-64.8-32.4-107.3-57.8-150-131.1-11.3-19.5 11.3-18.1 32.4-60.2 3.6-7.4 1.8-13.7-1-19.3-2.8-5.6-24.8-59.8-34-81.9-8.9-21.5-18.1-18.5-24.8-18.9-6.4-.4-13.7-.4-21.1-.4-7.4 0-19.3 2.8-29.4 13.7-10.1 11.1-38.6 37.8-38.6 92s39.5 106.7 44.9 114.1c5.6 7.4 77.7 118.6 188.4 166.5 70 30.2 97.4 32.8 132.4 27.6 21.3-3.2 65.2-26.6 74.3-52.5 9.1-25.8 9.1-47.9 6.4-52.5-2.7-4.9-10.1-7.7-21-13z"></path><path d="M925.2 338.4c-22.6-53.7-55-101.9-96.3-143.3a444.35 444.35 0 00-143.3-96.3C630.6 75.7 572.2 64 512 64h-2c-60.6.3-119.3 12.3-174.5 35.9a445.35 445.35 0 00-142 96.5c-40.9 41.3-73 89.3-95.2 142.8-23 55.4-34.6 114.3-34.3 174.9A449.4 449.4 0 00112 714v152a46 46 0 0046 46h152.1A449.4 449.4 0 00510 960h2.1c59.9 0 118-11.6 172.7-34.3a444.48 444.48 0 00142.8-95.2c41.3-40.9 73.8-88.7 96.5-142 23.6-55.2 35.6-113.9 35.9-174.5.3-60.9-11.5-120-34.8-175.6zm-151.1 438C704 845.8 611 884 512 884h-1.7c-60.3-.3-120.2-15.3-173.1-43.5l-8.4-4.5H188V695.2l-4.5-8.4C155.3 633.9 140.3 574 140 513.7c-.4-99.7 37.7-193.3 107.6-263.8 69.8-70.5 163.1-109.5 262.8-109.9h1.7c50 0 98.5 9.7 144.2 28.9 44.6 18.7 84.6 45.6 119 80 34.3 34.3 61.3 74.4 80 119 19.4 46.2 29.1 95.2 28.9 145.8-.6 99.6-39.7 192.9-110.1 262.7z"></path></svg></span>
+                        <span class="text-[18px]">Số điện thoại liên hệ: 012345678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="w-full">
+            <div class="w-full flex justify-between gap-[10px] ">
+                <div class="w-full flex items-center gap-[8px] m-auto">
+                    <div class="w-full justify-between pt-5 py-2 text-[17px] items-center text-center">
+                        <button class="btnSupportClass" (click)="newOderButton()">Đơn mới</button>
+                    </div>
+                    <div class="justify-between py-2 pr-2 pt-5 text-[17px] items-center text-center">
+                        <button class="btnSupportClass" (click)="callPaymentButton()">Thanh toán</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

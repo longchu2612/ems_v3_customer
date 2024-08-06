@@ -1,0 +1,171 @@
+<div class="flex flex-col px-3">
+    <header class="header h-[70px] w-full p-3 border-b border-[#ccc]">
+        <div class="inline-header flex h-full items-center">
+            <div class="menu">
+                <span nz-icon nzType="arrow-left" nzTheme="outline" class="text-[20px]" [routerLink]="'/bill'"></span>
+            </div>
+            <!-- <div class="page-title"></div> -->
+            <div class="logo text-center flex-1">
+                <span class="text-[18px] font-medium">Thanh toán</span>
+                <!-- <img src="https://via.placeholder.com/600x250" alt=""> -->
+            </div>
+            <div class="noti">
+                <span nz-icon nzType="more" nzTheme="outline" class="text-[20px]"></span>
+            </div>
+        </div>
+    </header>
+    <div class="main-body  bg-[#dcdcdc] p-2">
+        <ng-container *ngIf="data else noData">
+
+            <div class="card p-3 rounded-[8px] bg-[#fff]">
+                <div class="card-title ">
+                    <div class="flex text-[18px] flex gap-[8px] items-center">
+                        <span nz-icon nzType="container" nzTheme="outline" class=""></span>
+                        <span>
+                            Thông tin hoá đơn
+                        </span>
+                    </div>
+                </div>
+                <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+                    <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+                    <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+                </div>
+                <div class="card-content">
+                    <div class="">
+                        <div class="flex justify-between gap-[10px]">
+                            <span>Thanh toán</span>
+                            <span>
+                                <ng-container *ngIf="data.category == 1">Ăn tại bàn</ng-container>
+                                <ng-container *ngIf="data.category == 2">Mang đi</ng-container>
+                                <ng-container *ngIf="data.category == 3">Giao hàng</ng-container>
+                                <ng-container *ngIf="data.category == 4">Đối tác</ng-container>
+                            </span>
+                        </div>
+                        <div class="mt-1 flex justify-between gap-[10px]">
+                            <span>Thời gian bắt đầu</span>
+                            <span>{{data.time*1000 | date: 'HH:mm dd/MM/yyyy'}}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card p-3 rounded-[8px] bg-[#fff] mt-3">
+                <div class="card-title ">
+                    <div class="flex text-[18px] flex gap-[8px] items-center">
+                        <span nz-icon nzType="usergroup-add" nzTheme="outline" class=""></span>
+                        <span>
+                            Thông tin khách hàng
+                        </span>
+                    </div>
+                </div>
+                <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+                    <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+                    <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+                </div>
+                <div class="card-content">
+                    <div class="mb-3">
+                        <div class="flex justify-between gap-[10px]">
+                            <span>Khách lẻ</span>
+                            <span class="cursor-pointer text-indigo-400	">Sửa</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-3 rounded-[8px] bg-[#fff] mt-3">
+                <div class="card-title ">
+                    <div class="flex text-[18px] flex gap-[8px] items-center">
+                        <span nz-icon nzType="profile" nzTheme="outline" class=""></span>
+                        <span>
+                            Thông tin thanh toán
+                        </span>
+                    </div>
+                </div>
+                <div class="my-3 border-dashed border border-[#ccc] w-full relative">
+                    <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] left-[-20px] bg-[#dcdcdc]"></span>
+                    <span class="w-[14px] h-[14px] rounded-full absolute top-[-7px] right-[-20px] bg-[#dcdcdc]"></span>
+                </div>
+                <div class="card-content">
+                    <div class="">
+                        <div class="flex justify-between gap-[10px]">
+                            <div class="flex items-center gap-[8px]">
+                                <span nz-icon>
+                                    <svg class="w-[18px] h-[12px]" style="fill: rgb(79, 218, 10)"
+                                        xmlns="http://www.w3.org/2000/svg" width="108.258" height="62.187"
+                                        viewBox="0 0 108.258 62.187">
+                                        <path id="Cash-Icon-9uyhj"
+                                            d="M89.559,61.187H0V0H107.257V61.187ZM7.166,19.557V41.625a13.686,13.686,0,0,1,11.822,12.4H88.269a13.683,13.683,0,0,1,11.822-12.4V19.557a13.683,13.683,0,0,1-11.822-12.4H18.987A13.686,13.686,0,0,1,7.166,19.557Zm32.1,10.91A14.362,14.362,0,1,1,53.631,44.829,14.362,14.362,0,0,1,39.264,30.467Z"
+                                            transform="translate(0.5 0.5)" stroke="rgba(0,0,0,0)" stroke-miterlimit="10"
+                                            stroke-width="1" />
+                                    </svg>
+                                </span>
+                                <span>Tiền mặt</span>
+                            </div>
+                            <div class="cursor-pointer text-indigo-400 flex items-center gap-[5px]">
+                                <span>Thay đổi</span>
+                                <span nz-icon nzType="right" nzTheme="outline"></span>
+                            </div>
+                        </div>
+                        <div class="mt-3 flex justify-between gap-[10px]">
+                            <span class="font-medium text-[16px]">Cần thanh toán</span>
+                            <span class="italic font-medium">{{data.total_price | number: '1.0-2'}}đ</span>
+                        </div>
+                        <div class="mt-3 justify-between gap-[10px] p-2 rounded-[5px] flex border"
+                            (click)="isVisible = true">
+                            <span class="">Nhập tiền khách trả</span>
+                            <span class="text-[16px] text-indigo-400 font-medium">{{customerPayment*1000 | number:
+                                '1.0-2'}}đ</span>
+                        </div>
+                        <div class="mt-3 flex justify-between gap-[10px]">
+                            <span>Tiền thừa khách trả</span>
+                            <span>{{returnMoney*1000|number: '1.0-2'}}đ</span>
+                        </div>
+                        <div class="my-2 border-t border-[#ccc] w-full "></div>
+                        <div class="flex mt-4 flex-wrap gap-4">
+                            <span *ngFor="let i of suggestMoney" (click)="setMoney(i)"
+                                class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">{{i*1000|number: '1.0-2'}}đ</span>
+                            <!-- <span
+                                class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">51.000đ</span>
+                            <span
+                                class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">60.000đ</span>
+                            <span
+                                class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">100.000đ</span>
+                            <span
+                                class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">200.000đ</span>
+                            <span
+                                class="rounded-[15px] p-2 basis-1/3-gap-4 font-medium text-center bg-[#ebebeb]">500.000đ</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noData>
+            Vui lòng chọn đơn trên màn hình đơn hàng để thao tác. <a [routerLink]="'/order'">Quay lại</a>
+        </ng-template>
+    </div>
+    <footer class="footer px-3">
+        <button class=" w-full p-2 border rounded-[5px] text-[#fff] text-[20px] text-center bg-[#ed7d31]"
+            (click)="submitPayment()" [disabled]="!data">Xác nhận thanh toán</button>
+    </footer>
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Nhập số tiền" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <div *nzModalContent>
+        <!-- <nz-input-number class="w-full" style="width: 100%" [(ngModel)]="customerPayment" [nzMin]="1000"
+            [nzMax]="100000000" [nzStep]="100000" [nzFormatter]="formatterMoney"
+            [nzParser]="parserMoney"></nz-input-number> -->
+        <nz-space nzDirection="vertical" style="width: 100%">
+
+            <nz-input-number-group *nzSpaceItem [nzAddOnAfter]="addOnBeforeTemplate" style="width: 100%">
+                <nz-input-number class="w-full text-right" style="width: 100%;" [(ngModel)]="customerPayment" [nzMin]="10"
+                [nzMax]="100000000" [nzFormatter]="formatterMoney"
+                [nzParser]="parserMoney"></nz-input-number>
+            </nz-input-number-group>
+            <ng-template #addOnBeforeTemplate>
+                <span>,000 đ</span>
+            </ng-template>
+            <small *ngIf="isError">Số tiền nhập nhỏ hơn tiền hoá đơn</small>
+        </nz-space>
+    </div>
+</nz-modal>
